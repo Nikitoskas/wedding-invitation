@@ -1,0 +1,125 @@
+
+
+
+.container
+  width: 80vw
+  align-self: center
+  margin: 0 auto
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+@media screen and ( min-width: 320px)
+  .title
+    font-size: 30px
+    color: #61c25d
+    text-align: center
+
+  .item-container-wrap
+    display: flex
+    justify-content: center
+
+  .item-container
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+
+    & .items
+      display: flex
+      flex-direction: row
+      align-items: center
+      margin-top: 50px
+      height: 60px
+
+      &:not(:last-child) .item-svg-container
+        position: relative
+
+        &::after
+          content: ""
+          border: 1px solid
+          height: 58px
+          position: absolute
+          left: 25px
+          top: 50px
+
+  .time
+    font-size: 15px
+
+  .item-svg-container
+    margin: 0 15px
+    border: 2px solid
+    border-radius: 25px
+    height: 50px
+    width: 50px
+
+    & img
+      height: 50px
+      width: 50px
+
+  .description-container
+
+  .item-title
+    font-size: 15px
+
+  .item-text
+    margin-top: 5px
+    font-size: 10px
+
+@media screen and ( min-width: 720px)
+  .title
+    font-size: 70px
+    color: #61c25d
+    text-align: center
+
+  .item-container-wrap
+    display: flex
+    justify-content: center
+
+  .item-container
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+
+    & .items
+      display: flex
+      flex-direction: row
+      align-items: center
+      margin-top: 100px
+      height: 120px
+
+      &:not(:last-child) .item-svg-container
+        position: relative
+
+        &::after
+          content: ""
+          border: 1px solid
+          height: 118px
+          position: absolute
+          left: 50px
+          top: 100px
+
+  .time
+    font-size: 30px
+
+  .item-svg-container
+    margin: 0 50px
+    border: 2px solid
+    border-radius: 50px
+    height: 100px
+    width: 100px
+
+    & img
+      height: 100px
+      width: 100px
+
+  .description-container
+
+  .item-title
+    font-size: 30px
+
+  .item-text
+    margin-top: 5px
+    font-size: 20px
+
+
+

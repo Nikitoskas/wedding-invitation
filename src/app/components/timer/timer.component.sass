@@ -1,0 +1,44 @@
+.container
+  width: 80vw
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+.title
+
+@media screen and ( min-width: 320px)
+  .digit-container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 300px
+
+  .cell
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    & .digit
+      font-size: 30px
+    & .text
+      font-size: 10px
+
+@media screen and ( min-width: 720px)
+  .digit-container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 500px
+
+  .cell
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    & .digit
+      font-size: 60px
+    & .text
+      font-size: 20px
