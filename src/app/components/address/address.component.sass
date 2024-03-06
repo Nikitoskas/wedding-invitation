@@ -1,0 +1,41 @@
+.container
+  width: 80vw
+  height: 500px
+  margin: 0 auto
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+
+.title
+  font-size: 50px
+
+
+.text
+  font-size: 25px
+
+
+.link-button
+  $height: 100px
+  text-align: center
+  line-height: $height
+  font-size: 30px
+
+  border: 1px solid black
+  border-radius: 15px
+  height: $height
+  width: 250px
+  transition: all 0.3s ease
+
+  &:hover
+    // height: calc($height - 10%)
+    // width: calc(250px - 10%)
+    font-size: calc(30px - 10%)
+    cursor: pointer
+    border-radius: 25px
+    background-color: #fff4b7
+
+
+
+.left
+  width: 50%
