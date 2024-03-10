@@ -1,7 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Subject, switchMap, takeUntil } from 'rxjs';
+import { FormControl, Validators } from '@angular/forms';
+import { Subject, takeUntil } from 'rxjs';
 import { Invite } from 'src/app/model/Invite';
 import { ApiService } from './../../api.service';
 
@@ -11,16 +10,27 @@ import { ApiService } from './../../api.service';
   styleUrls: ['./reply.component.sass'],
 })
 export class ReplyComponent implements OnInit, OnDestroy {
-  name = new FormControl(undefined);
-  response = new FormControl(1);
-  drinks = new FormControl();
+  name = new FormControl(undefined, [Validators.required]);
+  response = new FormControl(undefined, [Validators.required]);
 
-  @Input("invite")
-  invite: Invite
+  responseElems: string[] = ['Я приду', 'Затрудняюсь ответить', 'Я не приду'];
+  drinksElems = [
+    'Вино',
+    'Виски',
+    'Водка',
+    'Шампанское',
+    'Что-нибудь безалкогольное',
+  ].map((e) => {
+    return {
+      label: e,
+      value: false,
+    };
+  });
 
-  constructor(
-    private apiService: ApiService
-  ) {}
+  @Input('invite')
+  invite: Invite;
+
+  constructor(private apiService: ApiService) {}
 
   onDestroy$ = new Subject();
   ngOnDestroy(): void {
@@ -30,16 +40,19 @@ export class ReplyComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {}
 
-  sendResponse(invite1: Invite) {
+  sendResponse() {
+    if (!this.response.valid || !this.name.valid)
+      return
+
     let invite: Invite = {
-      id: invite1.id,
+      id: this.invite.id,
       greeting: '',
       guests: [
         {
           name: this.name.value,
           creationDate: new Date(),
-          drinks: '',
-          response: '',
+          drinks: this.drinksElems.filter(e => e.value).map(e => e.label).join(", "),
+          response: this.response.value,
         },
       ],
     };

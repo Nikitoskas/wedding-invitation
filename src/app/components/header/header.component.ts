@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Invite } from './../../model/Invite';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
+
+  @Input('invite')
+  invite: Invite;
 
   constructor() { }
 

@@ -1,5 +1,6 @@
 <div class="container">
-  {{invite | json}}
+  <!-- {{invite | json}} -->
+  <img  src="/assets/img/divider-top.png" />
   <div class="title">Ответ на приглашение</div>
   <div class="text">
     Пожалуйста, ответьте на приглашение. Вы очень поможете нам в организации
@@ -9,5 +10,24 @@
     Обратите внимание, что если вы идёте парой или семьёй, то нужно заполнить
     форму на каждого взрослого.
   </div>
-  <input [formControl]="name" type="text">
+  <div class="text-input">
+    <label class="label" for="name_input">Введите Имя и Фамилию</label>
+    <input id="name_input" [formControl]="name" type="text" placeholder="Введите Имя и Фамилию" />
+  </div>
+  <mat-radio-group class="radio-group">
+    <label class="label" for="radio-group">Подтвердите присутствие</label>
+    <div id="radio-group" class="radio" *ngFor="let elem of responseElems; let i = index">
+      <mat-radio-button value="{{elem}}">{{elem}}</mat-radio-button>
+      <!-- <input type="radio" id="radio_{{i}}" [formControl]="response" value="{{elem}}" /> <label class="elem-label" for="radio_{{i}}">{{elem}}</label> -->
+    </div>
+  </mat-radio-group>
+  <div class="drinks-group">
+    <label class="label" for="drinks-group">Ваши предпочтения по напиткам?</label>
+    <div id="drinks-group" class="drink" *ngFor="let elem of drinksElems; let i = index">
+      <input type="checkbox" id="drink_{{i}}" [(ngModel)]="elem.value" /> <label class="elem-label" for="drink_{{i}}">{{elem.label}}</label>
+    </div>
+  </div>
+  <div class="btn" [ngClass]="{'btn-disabled': !response.valid || !name.valid}" (click)="sendResponse()">
+    <span class="btn-lbl">Отправить</span>
+  </div>
 </div>
