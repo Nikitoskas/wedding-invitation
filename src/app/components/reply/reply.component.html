@@ -1,5 +1,8 @@
 <div class="container">
   <!-- {{invite | json}} -->
+  <!-- {{name.value| json}}
+  {{response.value| json}}
+  {{drinksElems | json}} -->
   <img  src="/assets/img/divider-top.png" />
   <div class="title">Ответ на приглашение</div>
   <div class="text">
@@ -11,10 +14,10 @@
     форму на каждого взрослого.
   </div>
   <div class="text-input">
-    <label class="label" for="name_input">Введите Имя и Фамилию</label>
+    <label class="label" for="name_input">Имя и Фамилия</label>
     <input id="name_input" [formControl]="name" type="text" placeholder="Введите Имя и Фамилию" />
   </div>
-  <mat-radio-group class="radio-group">
+  <mat-radio-group class="radio-group" [formControl]="response">
     <label class="label" for="radio-group">Подтвердите присутствие</label>
     <div id="radio-group" class="radio" *ngFor="let elem of responseElems; let i = index">
       <mat-radio-button value="{{elem}}">{{elem}}</mat-radio-button>
@@ -22,10 +25,13 @@
     </div>
   </mat-radio-group>
   <div class="drinks-group">
-    <label class="label" for="drinks-group">Ваши предпочтения по напиткам?</label>
+    <mat-checkbox *ngFor="let elem of drinksElems" [(ngModel)]="elem.value">
+      {{elem.label}}
+    </mat-checkbox>
+    <!-- <label class="label" for="drinks-group">Ваши предпочтения по напиткам?</label>
     <div id="drinks-group" class="drink" *ngFor="let elem of drinksElems; let i = index">
       <input type="checkbox" id="drink_{{i}}" [(ngModel)]="elem.value" /> <label class="elem-label" for="drink_{{i}}">{{elem.label}}</label>
-    </div>
+    </div> -->
   </div>
   <div class="btn" [ngClass]="{'btn-disabled': !response.valid || !name.valid}" (click)="sendResponse()">
     <span class="btn-lbl">Отправить</span>

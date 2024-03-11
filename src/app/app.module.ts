@@ -13,6 +13,7 @@ import { MainComponent } from './components/main/main.component';
 import { ReplyComponent } from './components/reply/reply.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { TimerComponent } from './components/timer/timer.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { TimerComponent } from './components/timer/timer.component';
     FormsModule,
     ReactiveFormsModule,
     MatRadioModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent],

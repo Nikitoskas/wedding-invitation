@@ -41,8 +41,7 @@ export class ReplyComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   sendResponse() {
-    if (!this.response.valid || !this.name.valid)
-      return
+    if (!this.response.valid || !this.name.valid) return;
 
     let invite: Invite = {
       id: this.invite.id,
@@ -51,7 +50,10 @@ export class ReplyComponent implements OnInit, OnDestroy {
         {
           name: this.name.value,
           creationDate: new Date(),
-          drinks: this.drinksElems.filter(e => e.value).map(e => e.label).join(", "),
+          drinks: this.drinksElems
+            .filter((e) => e.value)
+            .map((e) => e.label)
+            .join(', '),
           response: this.response.value,
         },
       ],
@@ -63,5 +65,15 @@ export class ReplyComponent implements OnInit, OnDestroy {
       .subscribe((e) => {
         console.log('Thank you!!!');
       });
+  }
+
+  checkBox(
+    elem: {
+      label: string;
+      value: boolean;
+    },
+    ch: boolean
+  ) {
+    elem.value = ch;
   }
 }
