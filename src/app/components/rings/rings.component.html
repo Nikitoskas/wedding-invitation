@@ -1,4 +1,10 @@
 <div class="container">
-  <img class="ring left" src="/assets/img/ring.png" />
-  <img class="ring right" src="/assets/img/ring.png" />
+  <div class="c left-container">
+    <img [ngStyle]="{'transform':'rotate('+rotateLeft+'deg)'}" class="ring left" src="/assets/img/ring.png" />
+    <span class="name">Никита</span>
+  </div>
+  <div class="c right-container">
+    <img [ngStyle]="{'transform':'rotate('+rotateRight+'deg)'}" class="ring right" src="/assets/img/ring.png" />
+    <span class="name">Даша</span>
+  </div>
 </div>

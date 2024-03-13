@@ -1,5 +1,7 @@
+@import ../../../variables
+
 .container
-  height: 250px
+  // height: 250px
   display: flex
   justify-content: center
   align-items: center
@@ -8,10 +10,12 @@
 
 @media screen and ( min-width: 320px)
   .container
+    margin: $area-margin 0
     font-size: 25px
 
 @media screen and ( min-width: 720px)
   .container
+    margin: $area-margin*2 0
     font-size: 35px
 
 
