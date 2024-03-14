@@ -1,14 +1,15 @@
+<app-header [invite]="invite$ | async"></app-header>
 <div class="container">
-  <app-header [invite]="invite$ | async"></app-header>
   <app-rings></app-rings>
   <app-timer></app-timer>
   <app-schedule></app-schedule>
   <app-address></app-address>
   <app-reply [invite]="invite$ | async"></app-reply>
   <app-footer></app-footer>
-</div>
 
-<!-- <div class="f1">
-  <img src="/assets/img/f1.png" />
-</div> -->
+  <div class="f2">
+    <img src="/assets/img/f2-white.png" />
+  </div>
+
+</div>
 
