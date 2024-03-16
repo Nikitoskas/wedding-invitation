@@ -1,15 +1,19 @@
-<app-header [invite]="invite$ | async"></app-header>
-<div class="container">
-  <app-rings></app-rings>
-  <app-timer></app-timer>
-  <app-schedule></app-schedule>
-  <app-address></app-address>
-  <app-reply [invite]="invite$ | async"></app-reply>
-  <app-footer></app-footer>
-
-  <div class="f2">
-    <img src="/assets/img/f2-white.png" />
+<app-header class="header" [invite]="invite$ | async"></app-header>
+<div #container class="container">
+  <div class="inner">
+    <app-rings></app-rings>
+    <app-timer></app-timer>
+    <app-schedule></app-schedule>
+    <app-address></app-address>
+    <app-reply [invite]="invite$ | async"></app-reply>
+    <app-footer></app-footer>
   </div>
+
+  <ng-container *ngIf="flows">
+    <div #flowElements id="flow_{{flow.id}}" *ngFor="let flow of flows" class="f2" [ngStyle]="flow.style" >
+      <img [ngStyle]="{height: flow.size+'px'}" src="/assets/img/f2-pink.png" />
+    </div>
+  </ng-container>
 
 </div>
 
