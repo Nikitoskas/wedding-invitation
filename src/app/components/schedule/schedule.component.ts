@@ -15,25 +15,25 @@ interface ScheduleItem {
 export class ScheduleComponent implements OnInit {
   items: ScheduleItem[] = [
     {
-      time: '12:00',
+      time: '15:00',
       svg: 'wedding-location',
       title: 'Сбор гостей',
       text: 'Просим взять с собой хорошее настроение и свои улыбки',
     },
     {
-      time: '12:30',
+      time: '16:00',
       svg: 'wedding-couple',
       title: 'Свадебная церемония',
       text: 'На всякий случай приготовьте носовые платочки для трогательного момента',
     },
     {
-      time: '14:00',
+      time: '16:30',
       svg: 'dish',
       title: 'Праздничный банкет',
       text: 'Время вкусной еды, танцев и развлечений',
     },
     {
-      time: '23:00',
+      time: '22:00',
       svg: 'just-married',
       title: 'Окончание мероприятия',
       text: 'К сожалению, даже такой прекрасный вечер может закончиться',

@@ -85,9 +85,9 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     let elem = this.flowElements.find((e) => e.nativeElement.id === "flow_" + item.id);
 
     if(this.checkOverlap(elem.nativeElement)){
-      item.left += item.leftSpeed + this.random(1);
-      item.top += item.topSpeed + this.random(1);
-      item.rotate += item.rotateSpeed + this.randomInRangeS(2);
+      item.left += item.leftSpeed //+ this.random(1);
+      item.top += item.topSpeed //+ this.random(1);
+      item.rotate += item.rotateSpeed //+ this.randomInRangeS(2);
       // if (this.variateBoolean(50)) item.size += 5 + this.randomInt(5);
       // else item.size -= 5 + this.randomInt(5);
 
@@ -141,11 +141,11 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
     item.top = this.randomInRange(0 - this.margin, containerRect.bottom - containerRect.top + this.margin);
     item.left = this.randomInRange(0 - this.margin, containerRect.right - containerRect.left + this.margin);
 
-    item.leftSpeed = this.randomInRangeS(2);
+    item.leftSpeed = 0//this.randomInRangeS(2);
     item.topSpeed = 10 + this.randomInRangeS(5);
     item.rotate = this.randomInRangeS(180);
     item.rotateSpeed = this.randomInRangeS(5);
-    item.size = 100;
+    // item.size = 100;
     item.isVisible = false;
 
     return item

@@ -11,7 +11,8 @@
 
   <ng-container *ngIf="flows">
     <div #flowElements id="flow_{{flow.id}}" *ngFor="let flow of flows" class="f2" [ngStyle]="flow.style" >
-      <img [ngStyle]="{height: flow.size+'px'}" src="/assets/img/f2-pink.png" />
+      <img class="f2-img" src="/assets/img/f2-pink.png" />
+      <!-- [ngStyle]="{height: flow.size+'px'}" -->
     </div>
   </ng-container>
 
