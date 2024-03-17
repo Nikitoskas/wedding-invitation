@@ -27,15 +27,31 @@
   display: flex
   flex-direction: column
 
+$text-border-color: black
+$text-border-weight: 2px
 
 .title
-  font-size: 50px
-  color: #ffe7c8
+  color: white
+  font-weight: 500
   text-align: center
-  text-shadow: -1px 0 #6c6c6c, 0 1px #6c6c6c, 1px 0 #6c6c6c, 0 -1px #6c6c6c
+  text-shadow: -1px 0 $text-border-color, 0 1px $text-border-color, 1px 0 $text-border-color, 0 -1px $text-border-color
 
 .title-text
-  font-size: 25px
-  color: #ffe7c8
+  color: white
   text-align: center
-  text-shadow: -1px 0 #6c6c6c, 0 1px #6c6c6c, 1px 0 #6c6c6c, 0 -1px #6c6c6c
+  text-shadow: -1px 0 $text-border-color, 0 1px $text-border-color, 1px 0 $text-border-color, 0 -1px $text-border-color
+
+
+@media screen and ( min-width: 320px)
+  .title
+    font-size: 40px
+
+  .title-text
+    font-size: 25px
+
+@media screen and ( min-width: 720px)
+  .title
+    font-size: 90px
+
+  .title-text
+    font-size: 70px

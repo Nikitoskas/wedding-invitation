@@ -15,6 +15,7 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
 import { TimerComponent } from './components/timer/timer.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { RingsComponent } from './components/rings/rings.component';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { RingsComponent } from './components/rings/rings.component';
     FormsModule,
     ReactiveFormsModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent],

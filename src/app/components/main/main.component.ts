@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subject, interval, switchMap, takeUntil } from 'rxjs';
-import { ApiService } from 'src/app/api.service';
+import { ApiService } from 'src/app/service/api.service';
 import { FlowItem } from './model/FlowItem';
 
 @Component({

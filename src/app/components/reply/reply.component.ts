@@ -1,8 +1,9 @@
+import { OverlayService } from './../../service/overlay.service';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { Invite } from 'src/app/model/Invite';
-import { ApiService } from './../../api.service';
+import { ApiService } from '../../service/api.service';
 
 @Component({
   selector: 'app-reply',
@@ -30,7 +31,7 @@ export class ReplyComponent implements OnInit, OnDestroy {
   @Input('invite')
   invite: Invite;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private overlayService: OverlayService) {}
 
   onDestroy$ = new Subject();
   ngOnDestroy(): void {
@@ -41,6 +42,7 @@ export class ReplyComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   sendResponse() {
+    // this.overlayService.open("Спасибо за ответ")
     if (!this.response.valid || !this.name.valid) return;
 
     let invite: Invite = {
@@ -63,7 +65,8 @@ export class ReplyComponent implements OnInit, OnDestroy {
       .saveResponseGuest(invite)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe((e) => {
-        console.log('Thank you!!!');
+        this.resetForm()
+        this.overlayService.open("Спасибо за ответ")
       });
   }
 
@@ -75,5 +78,11 @@ export class ReplyComponent implements OnInit, OnDestroy {
     ch: boolean
   ) {
     elem.value = ch;
+  }
+
+  resetForm(){
+    this.drinksElems.forEach(e => e.value = false)
+    this.name.setValue(undefined)
+    this.response.setValue(undefined)
   }
 }

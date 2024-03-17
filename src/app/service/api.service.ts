@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
-import { Invite } from './model/Invite';
+import { Invite } from '../model/Invite';
 
 @Injectable({
   providedIn: 'root',
