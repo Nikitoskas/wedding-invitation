@@ -42,32 +42,32 @@ export class ReplyComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   sendResponse() {
-    // this.overlayService.open("Спасибо за ответ")
-    if (!this.response.valid || !this.name.valid) return;
+    this.overlayService.open("Спасибо за ответ")
+    // if (!this.response.valid || !this.name.valid) return;
 
-    let invite: Invite = {
-      id: this.invite.id,
-      greeting: '',
-      guests: [
-        {
-          name: this.name.value,
-          creationDate: new Date(),
-          drinks: this.drinksElems
-            .filter((e) => e.value)
-            .map((e) => e.label)
-            .join(', '),
-          response: this.response.value,
-        },
-      ],
-    };
+    // let invite: Invite = {
+    //   id: this.invite.id,
+    //   greeting: '',
+    //   guests: [
+    //     {
+    //       name: this.name.value,
+    //       creationDate: new Date(),
+    //       drinks: this.drinksElems
+    //         .filter((e) => e.value)
+    //         .map((e) => e.label)
+    //         .join(', '),
+    //       response: this.response.value,
+    //     },
+    //   ],
+    // };
 
-    this.apiService
-      .saveResponseGuest(invite)
-      .pipe(takeUntil(this.onDestroy$))
-      .subscribe((e) => {
-        this.resetForm()
-        this.overlayService.open("Спасибо за ответ")
-      });
+    // this.apiService
+    //   .saveResponseGuest(invite)
+    //   .pipe(takeUntil(this.onDestroy$))
+    //   .subscribe((e) => {
+    //     this.resetForm()
+    //     this.overlayService.open("Спасибо за ответ")
+    //   });
   }
 
   checkBox(

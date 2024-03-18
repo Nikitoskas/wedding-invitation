@@ -1,3 +1,4 @@
+import { DateComponent } from './components/date/date.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,6 +29,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     FooterComponent,
     MainComponent,
     RingsComponent,
+    DateComponent
   ],
   imports: [
     BrowserModule,

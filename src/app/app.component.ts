@@ -26,6 +26,7 @@ export class AppComponent {
         .centerHorizontally()
         .centerVertically(),
       backdropClass: 'backdrop',
+      panelClass: 'panelClass'
     });
 
     const portal = new ComponentPortal(
@@ -37,8 +38,8 @@ export class AppComponent {
     );
     overlayRef.attach(portal);
 
-    setTimeout(() => {
-      overlayRef.detach()
-    }, 2000);
+    // setTimeout(() => {
+    //   overlayRef.detach()
+    // }, 2000);
   }
 }

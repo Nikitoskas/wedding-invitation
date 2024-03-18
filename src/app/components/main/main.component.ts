@@ -152,7 +152,6 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   reInitFlow(old: FlowItem){
-    debugger
     this.flows.splice(this.flows.indexOf(old), 1)
 
     let item = this.setInitValues(old.id);
