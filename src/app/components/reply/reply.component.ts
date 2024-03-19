@@ -1,9 +1,9 @@
-import { OverlayService } from './../../service/overlay.service';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { Invite } from 'src/app/model/Invite';
 import { ApiService } from '../../service/api.service';
+import { OverlayService } from './../../service/overlay.service';
 
 @Component({
   selector: 'app-reply',
@@ -14,7 +14,7 @@ export class ReplyComponent implements OnInit, OnDestroy {
   name = new FormControl(undefined, [Validators.required]);
   response = new FormControl(undefined, [Validators.required]);
 
-  responseElems: string[] = ['Я приду', 'Затрудняюсь ответить', 'Я не приду'];
+  responseElems: string[] = ['Я приду', 'Я не приду'];
   drinksElems = [
     'Вино',
     'Виски',
@@ -31,7 +31,10 @@ export class ReplyComponent implements OnInit, OnDestroy {
   @Input('invite')
   invite: Invite;
 
-  constructor(private apiService: ApiService, private overlayService: OverlayService) {}
+  constructor(
+    private apiService: ApiService,
+    private overlayService: OverlayService
+  ) {}
 
   onDestroy$ = new Subject();
   ngOnDestroy(): void {
@@ -42,7 +45,6 @@ export class ReplyComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   sendResponse() {
-    this.overlayService.open("Спасибо за ответ")
     // if (!this.response.valid || !this.name.valid) return;
 
     // let invite: Invite = {
@@ -65,9 +67,15 @@ export class ReplyComponent implements OnInit, OnDestroy {
     //   .saveResponseGuest(invite)
     //   .pipe(takeUntil(this.onDestroy$))
     //   .subscribe((e) => {
-    //     this.resetForm()
-    //     this.overlayService.open("Спасибо за ответ")
-    //   });
+        let text = 'Спасибо за ответ';
+        if (this.response.value === this.responseElems[0])
+          text = 'Продолжение следует...';
+        else if(this.response.value === this.responseElems[1])
+          text = 'Ой... У тебя еще есть время передумать';
+
+        this.resetForm();
+        this.overlayService.open(text);
+      // });
   }
 
   checkBox(
@@ -80,9 +88,9 @@ export class ReplyComponent implements OnInit, OnDestroy {
     elem.value = ch;
   }
 
-  resetForm(){
-    this.drinksElems.forEach(e => e.value = false)
-    this.name.setValue(undefined)
-    this.response.setValue(undefined)
+  resetForm() {
+    this.drinksElems.forEach((e) => (e.value = false));
+    this.name.setValue(undefined);
+    this.response.setValue(undefined);
   }
 }

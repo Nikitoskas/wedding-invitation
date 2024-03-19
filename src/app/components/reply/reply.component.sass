@@ -17,6 +17,7 @@
   border-style: solid
 
 .btn
+  transition: all 0.3s ease
   margin-top: 40px
   width: 100%
   height: 50px
@@ -27,6 +28,13 @@
   justify-content: center
   cursor: pointer
   border-radius: 10px
+
+  &:not(.btn-disabled)
+    background-color: #ae9f8850
+
+    &:hover
+      background-color: #ae9f8870
+
 
   & .btn-lbl
     font-size: 20px
