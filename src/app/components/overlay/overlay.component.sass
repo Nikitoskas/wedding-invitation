@@ -1,7 +1,13 @@
 @import ../../../variables
 
 .overlay
-  font-size: 80px
   color: $pink-color
   text-align: center
 
+@media screen and ( min-width: 320px)
+  .overlay
+    font-size: 50px
+
+@media screen and ( min-width: 720px)
+  .overlay
+    font-size: 80px

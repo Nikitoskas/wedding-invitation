@@ -38,8 +38,8 @@ export class AppComponent {
     );
     overlayRef.attach(portal);
 
-    // setTimeout(() => {
-    //   overlayRef.detach()
-    // }, 2000);
+    setTimeout(() => {
+      overlayRef.detach()
+    }, 3000);
   }
 }
