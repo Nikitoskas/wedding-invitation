@@ -6,12 +6,15 @@
   <img class="divider" src="/assets/img/divider-top.png" />
   <div class="title goood-vibes">Ответ на приглашение</div>
   <div class="text">
-    Пожалуйста, ответьте на приглашение <b>до 1 мая</b>. Вы очень поможете нам в организации
-    свадьбы
+    Пожалуйста, ответьте на приглашение <b>до 1 мая</b>. Это очень поможет нам в организации свадьбы. Если вы идете парой, то заполните форму на каждого гостя.
     <br />
     <br />
-    Обратите внимание, что если вы идёте парой или семьёй, то нужно заполнить
-    форму на каждого взрослого.
+    Если что-то покажется непонятным, то вы всегда можете нам позвонить.
+    <br />
+    <br />
+    Если у вас нет нашего номера телефона, то, скорее всего, это приглашение было отправлено по ошибке
+    <br />
+    <img class="smile" src="/assets/img/smile.png" />
   </div>
   <div class="text-input">
     <label class="label" for="name_input">Имя и Фамилия</label>
@@ -25,6 +28,7 @@
     </div>
   </mat-radio-group>
   <div class="drinks-group">
+    <label class="label" for="radio-group">Предпочтение по напиткам</label>
     <mat-checkbox *ngFor="let elem of drinksElems" [(ngModel)]="elem.value">
       {{elem.label}}
     </mat-checkbox>

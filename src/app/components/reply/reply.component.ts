@@ -16,11 +16,11 @@ export class ReplyComponent implements OnInit, OnDestroy {
 
   responseElems: string[] = ['Я приду', 'Я не приду'];
   drinksElems = [
-    'Вино',
-    'Виски',
+    'Вино сладкое/полусладкое',
+    'Вино сухое/полусухое',
+    'Виски или иной крепкий алкоголь',
     'Водка',
-    'Шампанское',
-    'Что-нибудь безалкогольное',
+    'Я за ЗОЖ',
   ].map((e) => {
     return {
       label: e,

@@ -1,3 +1,4 @@
+import { Invite } from 'src/app/model/Invite';
 import {
   AfterViewInit,
   Component,
@@ -8,8 +9,8 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Subject, interval, switchMap, takeUntil } from 'rxjs';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Subject, catchError, interval, switchMap, takeUntil, tap, Observable } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import { FlowItem } from './model/FlowItem';
 
@@ -32,12 +33,15 @@ export class MainComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public readonly invite$ = this.route.paramMap.pipe(
     switchMap((params: ParamMap) => {
-      debugger;
-      return this.apiService.getGuest(params.get('id'));
+      return this.apiService.getGuest(params.get('id')).pipe(catchError((err) => {
+        this.router.navigate([""])
+
+        return {} as Observable<Invite>;
+      }));
     })
   );
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
+  constructor(private apiService: ApiService, private route: ActivatedRoute, private router: Router) {}
 
   onDestroy$ = new Subject();
   ngOnDestroy(): void {

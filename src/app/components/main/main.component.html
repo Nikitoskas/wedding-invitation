@@ -7,7 +7,7 @@
     <app-schedule></app-schedule>
     <app-address></app-address>
     <app-reply [invite]="invite$ | async"></app-reply>
-    <app-footer></app-footer>
+    <app-footer [invite]="invite$ | async"></app-footer>
   </div>
 
   <ng-container *ngIf="flows">
