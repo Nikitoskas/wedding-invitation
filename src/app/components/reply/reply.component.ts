@@ -45,37 +45,38 @@ export class ReplyComponent implements OnInit, OnDestroy {
   ngOnInit(): void {}
 
   sendResponse() {
-    // if (!this.response.valid || !this.name.valid) return;
+    if (!this.response.valid || !this.name.valid) return;
 
-    // let invite: Invite = {
-    //   id: this.invite.id,
-    //   greeting: '',
-    //   guests: [
-    //     {
-    //       name: this.name.value,
-    //       creationDate: new Date(),
-    //       drinks: this.drinksElems
-    //         .filter((e) => e.value)
-    //         .map((e) => e.label)
-    //         .join(', '),
-    //       response: this.response.value,
-    //     },
-    //   ],
-    // };
+    let invite: Invite = {
+      id: this.invite.id,
+      many: this.invite.many,
+      greeting: '',
+      guests: [
+        {
+          name: this.name.value,
+          creationDate: new Date(),
+          drinks: this.drinksElems
+            .filter((e) => e.value)
+            .map((e) => e.label)
+            .join(', '),
+          response: this.response.value,
+        },
+      ],
+    };
 
-    // this.apiService
-    //   .saveResponseGuest(invite)
-    //   .pipe(takeUntil(this.onDestroy$))
-    //   .subscribe((e) => {
+    this.apiService
+      .saveResponseGuest(invite)
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe((e) => {
         let text = 'Спасибо за ответ';
         if (this.response.value === this.responseElems[0])
           text = 'Продолжение следует...';
-        else if(this.response.value === this.responseElems[1])
+        else if (this.response.value === this.responseElems[1])
           text = 'Ой... У тебя еще есть время передумать';
 
         this.resetForm();
         this.overlayService.open(text);
-      // });
+      });
   }
 
   checkBox(
