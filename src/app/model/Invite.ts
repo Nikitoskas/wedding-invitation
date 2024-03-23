@@ -2,7 +2,7 @@ import { Guest } from './Guest';
 
 export interface Invite {
   id: string;
-  isMany: boolean,
+  many: boolean,
   greeting: string;
   guests: Guest[];
 }
